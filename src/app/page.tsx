@@ -1,35 +1,29 @@
-import Image from "next/image";
 import Link from "next/link";
-import Registration from '@/components/Registration';
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black p-4 sm:p-8">
-      <header className="flex items-center mb-8 sm:mb-12">
+      <header className="flex items-center mb-6 sm:mb-8">
         <Image 
-          src="/gdsc.svg" 
-          alt="Google Developer Student Clubs" 
-          width={32} 
-          height={32} 
-          className="w-8 h-8 sm:w-10 sm:h-10"
+          src="/gdsclogo.svg" 
+          alt="Google Developer Student Clubs Logo" 
+          width={48} 
+          height={48} 
+          className="w-8 h-8 sm:w-12 sm:h-12 mr-2 sm:mr-3"
         />
-        <span className="ml-2 font-semibold text-sm sm:text-base">Google Developer Student Clubs</span>
+        <div>
+          <h2 className="font-semibold text-xs sm:text-base">Google Developer Student Clubs</h2>
+          <p className="text-xxs sm:text-xs text-gray-600">Powered by Google</p>
+        </div>
       </header>
 
-      <div className="max-w-2xl">
-        <Image 
-          src="/google.svg" 
-          alt="Powered by Google" 
-          width={100} 
-          height={20} 
-          className="h-5 sm:h-6 w-auto mb-4"
-        />
-        
-        <h1 className="text-3xl sm:text-5xl font-bold leading-tight mb-4">
+      <div className="max-w-xl sm:max-w-2xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
           Access all your university tools and resources in one place.
         </h1>
         
-        <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
+        <p className="text-sm sm:text-base text-gray-600 mb-6">
           Quickly find info about course requirements, simplify resources navigation, be organized. Save four hours on your academic planning.
         </p>
         

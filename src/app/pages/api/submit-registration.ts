@@ -40,17 +40,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: 'Sheet1!A1', // Adjust this if your sheet name is different
+      range: 'Registrations!A1', // If you renamed the sheet to "Registrations"
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values: [[
+          new Date().toISOString(), // Timestamp
           email, 
           fullName, 
           whatsappNumber, 
           membershipTypeForSheet, 
           discipline, 
-          comments, 
-          new Date().toISOString()
+          comments
         ]],
       },
     });
