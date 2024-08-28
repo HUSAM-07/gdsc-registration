@@ -8,8 +8,10 @@ export default function Registration() {
     fullName: '',
     whatsappNumber: '',
     membershipType: '',
+    discipline: '',
     comments: ''
   });
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,6 +27,8 @@ export default function Registration() {
         body: JSON.stringify(formData)
       });
       if (response.ok) {
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 5000); // Hide confetti after 5 seconds
         alert('Registration submitted successfully!');
         // Reset form or redirect user
       } else {
@@ -88,10 +92,29 @@ export default function Registration() {
                 onChange={handleChange}
                 value={formData.membershipType}
               >
-                <option value="">Select a type</option>
-                <option value="basic">Basic</option>
-                <option value="premium">Premium</option>
-                <option value="vip">VIP</option>
+                <option value="">Select a membership type</option>
+                <option value="normal">30 AED/yr (Normal)</option>
+                <option value="fourYear">60 AED For 4 yrs <span className="text-green-600 font-bold">(Most Value)</span></option>
+                <option value="groupOfFive">20 AED/yr For group of 5 <span className="text-blue-600 font-bold">(Most Popular)</span></option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="discipline" className="block text-sm font-medium text-gray-700">Discipline/Course</label>
+              <select
+                name="discipline"
+                id="discipline"
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                onChange={handleChange}
+                value={formData.discipline}
+              >
+                <option value="">Select your discipline</option>
+                <option value="CS">CS</option>
+                <option value="BioTech">BioTech</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="EEE">EEE</option>
+                <option value="ECE">ECE</option>
+                <option value="Chemical">Chemical</option>
               </select>
             </div>
             <div>
